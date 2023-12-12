@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git clone') {
             steps {
-            git branch: 'main',url: 'https://github.com/sarthakharne/TicketResolver_Backend.git'
+            git branch: 'master',url: 'https://github.com/sarthakharne/TicketResolver_Backend.git'
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script{
-                    docker.withRegistry('','dockerhub'){
+                    docker.withRegistry('','DockerHubCred'){
                     dockerimage.push()
                     }
                 }
@@ -41,7 +41,10 @@ pipeline {
 
         stage("Removing Image from local"){
             steps{
-                sh "docker rmi sarthakharne2262/ticketresolver-backend"
+                script{
+                    sh 'docker container prune -f'
+                    sh 'docker image prune -f'
+                }
             }
         }
 
