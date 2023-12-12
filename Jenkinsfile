@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git clone') {
             steps {
-            git branch: 'main',url: 'https://github.com/nirajlande/SPE-Backend.git'
+            git branch: 'main',url: 'https://github.com/sarthakharne/TicketResolver_Backend.git'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
         stage('Docker Build Image') {
             steps {
                 script{
-                    dockerimage=docker.build "nirajlande/spe-backend"
+                    dockerimage=docker.build "sarthakharne2262/ticketresolver-backend"
                 }
             }
         }
@@ -41,7 +41,7 @@ pipeline {
 
         stage("Removing Image from local"){
             steps{
-                sh "docker rmi nirajlande/spe-backend"
+                sh "docker rmi sarthakharne2262/ticketresolver-backend"
             }
         }
 
