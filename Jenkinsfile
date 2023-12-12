@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git clone') {
             steps {
-            git branch: 'master',url: 'https://github.com/sarthakharne/TicketResolver_Backend.git'
+            git branch: 'master',url: 'https://github.com/sarthakharne/ticketresolver_backend.git'
             }
         }
 
@@ -39,7 +39,7 @@ pipeline {
             }
         }
 
-        stage("Removing Image from local"){
+        stage("Removing Image from local machine"){
             steps{
                 script{
                     sh 'docker container prune -f'
