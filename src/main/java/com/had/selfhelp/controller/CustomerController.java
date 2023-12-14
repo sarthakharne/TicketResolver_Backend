@@ -68,7 +68,8 @@ public class CustomerController {
     {
         log.info("cheking complaints status");
         Camplaints c =  camplaintServices.findById(com_id);
-        c.setStatus("Updating the ")
+        c.setStatus("Updating the complaint");
+        camplaintServices.update(c);
         c.setStatus("Done");
         camplaintServices.save(c);
 
@@ -77,12 +78,12 @@ public class CustomerController {
     @PostMapping("/owner/aknow/{com_id}/{aknow}")
     public void status(@PathVariable(name="com_id")int com_id,@PathVariable(name="aknow")String aknow)
     {
-        log.info("Aknowledge the complaints");
+        log.info("Aknowledge the retraction of complaints");
         Complaints c =  complaintServices.findById(com_id);
         c.setAknow(aknow);
+        camplaintServices.DELETE(c)
         c.setStatus("Completed the task and deleting it.")
         camplaintServices.save(c);
-
     }
 
 
