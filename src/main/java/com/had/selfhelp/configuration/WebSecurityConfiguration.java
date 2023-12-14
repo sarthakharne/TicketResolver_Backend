@@ -54,13 +54,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        // System.out.println("Filtering on.......configure....................................................");
-        //         http.cors().and().csrf().disable()
-        //         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-        //         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-        //         .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-        //         .antMatchers("/api/test/**").permitAll()
-        //         .anyRequest().authenticated();
         System.out.println("Filtering on.......configure....................................................");
                 http.cors().and().csrf().disable()
                 .exceptionHandling().and()
