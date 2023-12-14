@@ -9,7 +9,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.had.selfhelp.dao.CustomerRepository;
-import com.had.selfhelp.entity.Camplaints;
+import com.had.selfhelp.entity.Complaints;
 import com.had.selfhelp.entity.Customer;
 import com.had.selfhelp.entity.LoginRequest;
 
@@ -38,8 +38,8 @@ class CustomerServiceImplTest {
     @Test
     void testSave() {
         Customer customer = new Customer();
-        ArrayList<Camplaints> camplaintsList = new ArrayList<>();
-        customer.setCamplaints(camplaintsList);
+        ArrayList<Complaints> complaintsList = new ArrayList<>();
+        customer.setComplaints(complaintsList);
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);
@@ -49,7 +49,7 @@ class CustomerServiceImplTest {
         when(customerRepository.save((Customer) any())).thenReturn(customer);
 
         Customer customer1 = new Customer();
-        customer1.setCamplaints(new ArrayList<>());
+        customer1.setComplaints(new ArrayList<>());
         customer1.setEmail("jane.doe@example.org");
         customer1.setFirstName("Jane");
         customer1.setId(1);
@@ -58,7 +58,7 @@ class CustomerServiceImplTest {
         customer1.setUsername("janedoe");
         customerServiceImpl.save(customer1);
         verify(customerRepository).save((Customer) any());
-        assertEquals(camplaintsList, customer1.getCamplaints());
+        assertEquals(complaintsList, customer1.getComplaints());
         assertEquals("janedoe", customer1.getUsername());
         assertEquals("iloveyou", customer1.getPassword());
         assertEquals("Doe", customer1.getLastName());
@@ -73,7 +73,7 @@ class CustomerServiceImplTest {
         when(customerRepository.save((Customer) any())).thenThrow(new RuntimeException());
 
         Customer customer = new Customer();
-        customer.setCamplaints(new ArrayList<>());
+        customer.setComplaints(new ArrayList<>());
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);
@@ -88,7 +88,7 @@ class CustomerServiceImplTest {
     @Test
     void testLogin() {
         Customer customer = new Customer();
-        customer.setCamplaints(new ArrayList<>());
+        customer.setComplaints(new ArrayList<>());
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);
@@ -113,8 +113,8 @@ class CustomerServiceImplTest {
     @Test
     void testCostumerComplaint() {
         Customer customer = new Customer();
-        ArrayList<Camplaints> camplaintsList = new ArrayList<>();
-        customer.setCamplaints(camplaintsList);
+        ArrayList<Complaints> complaintsList = new ArrayList<>();
+        customer.setComplaints(complaintsList);
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);
@@ -124,15 +124,15 @@ class CustomerServiceImplTest {
         when(customerRepository.getReferenceById((Integer) any())).thenReturn(customer);
 
         Customer customer1 = new Customer();
-        customer1.setCamplaints(new ArrayList<>());
+        customer1.setComplaints(new ArrayList<>());
         customer1.setEmail("jane.doe@example.org");
         customer1.setFirstName("Jane");
         customer1.setId(1);
         customer1.setLastName("Doe");
         customer1.setPassword("iloveyou");
         customer1.setUsername("janedoe");
-        List<Camplaints> actualCostumerComplaintResult = customerServiceImpl.costumerComplaint(customer1);
-        assertSame(camplaintsList, actualCostumerComplaintResult);
+        List<Complaints> actualCostumerComplaintResult = customerServiceImpl.costumerComplaint(customer1);
+        assertSame(complaintsList, actualCostumerComplaintResult);
         assertTrue(actualCostumerComplaintResult.isEmpty());
         verify(customerRepository).getReferenceById((Integer) any());
     }
@@ -143,7 +143,7 @@ class CustomerServiceImplTest {
         when(customerRepository.getReferenceById((Integer) any())).thenThrow(new RuntimeException());
 
         Customer customer = new Customer();
-        customer.setCamplaints(new ArrayList<>());
+        customer.setComplaints(new ArrayList<>());
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);
@@ -157,7 +157,7 @@ class CustomerServiceImplTest {
     @Test
     void testFindById() {
         Customer customer = new Customer();
-        customer.setCamplaints(new ArrayList<>());
+        customer.setComplaints(new ArrayList<>());
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);

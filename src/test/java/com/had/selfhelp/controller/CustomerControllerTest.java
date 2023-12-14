@@ -5,10 +5,10 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.had.selfhelp.entity.Camplaints;
+import com.had.selfhelp.entity.Complaints;
 import com.had.selfhelp.entity.Customer;
 import com.had.selfhelp.entity.LoginRequest;
-import com.had.selfhelp.service.CamplaintServices;
+import com.had.selfhelp.service.ComplaintServices;
 import com.had.selfhelp.service.CustomerServices;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @ExtendWith(SpringExtension.class)
 class CustomerControllerTest {
     @MockBean
-    private CamplaintServices camplaintServices;
+    private ComplaintServices complaintServices;
 
     @Autowired
     private CustomerController customerController;
@@ -45,7 +45,7 @@ class CustomerControllerTest {
         doNothing().when(customerServices).save((Customer) any());
 
         Customer customer = new Customer();
-        customer.setCamplaints(new ArrayList<>());
+        customer.setComplaints(new ArrayList<>());
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);
