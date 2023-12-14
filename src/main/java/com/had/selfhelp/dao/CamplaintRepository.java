@@ -4,4 +4,6 @@ import com.had.selfhelp.entity.Camplaints;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CamplaintRepository extends JpaRepository<Camplaints,Integer> {
+
+    Camplaints findById(Integer id;);
 }

@@ -11,6 +11,11 @@ import java.security.GeneralSecurityException;
 import java.security.Key;
 import java.util.Base64;
 
+/*This Java code represents an AES (Advanced Encryption Standard) encryptor
+that implements the AttributeConverter interface.
+The purpose of this code seems to be to provide encryption and decryption functionality for attributes in a Java
+application that interacts with a database via JPA (Java Persistence API). */
+
 @Configuration
 public class AesEncryptor implements AttributeConverter<Object, String> {
 

@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*
+This Java code represents a RESTful API controller class within a Spring Boot application.
+It handles various endpoints related to customer complaints.
+*/
+
 @RestController
 @Slf4j
 @RequestMapping("/api")
@@ -63,8 +68,9 @@ public class CustomerController {
     {
         log.info("cheking complaints status");
         Camplaints c =  camplaintServices.findById(com_id);
+        c.setStatus("Updating the ")
         c.setStatus("Done");
-         camplaintServices.save(c);
+        camplaintServices.save(c);
 
     }
 
@@ -74,6 +80,7 @@ public class CustomerController {
         log.info("Aknowledge the complaints");
         Camplaints c =  camplaintServices.findById(com_id);
         c.setAknow(aknow);
+        c.setStatus("Completed the task and deleting it.")
         camplaintServices.save(c);
 
     }
