@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 @Component
+
+/*Override of the commence() method from the AuthenticationEntryPoint interface.
+This method is invoked when an unauthenticated user tries to access a secured resource.
+*/
 public class AuthEntryPointJwt implements AuthenticationEntryPoint {
     private static final Logger logger = LoggerFactory.getLogger(AuthEntryPointJwt.class);
     @Override

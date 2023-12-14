@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
+/*
+This Java class (JwtUtils) is responsible for handling JSON Web Tokens (JWTs) in a Spring Security context.
+It provides methods to generate, parse, validate JWTs, and extract information from them.
+*/
 import java.util.Date;
 @Component
 public class JwtUtils {

@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+/*This code is a controller class in a Spring Boot application,
+handling authentication-related HTTP requests. Here's a breakdown: */
 
 @RestController
 @Slf4j
