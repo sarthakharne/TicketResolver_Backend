@@ -1,14 +1,7 @@
 package com.had.selfhelp.entity;
 
-@Entity
-@Table(name = "login")
-@Data
 public class LoginRequest {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "username")
     private String username;
-    @Column(name="password")
     private String password;
 
     public String getUsername() {
