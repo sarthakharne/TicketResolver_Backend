@@ -26,7 +26,7 @@ public class Customer {
 	private  String password;
 
 	@OneToMany(mappedBy = "customer")
-	private List<Camplaints> camplaints;
+	private List<Complaints> complaints;
 	public String getUsername() {
 		return username;
 	}
@@ -81,12 +81,12 @@ public class Customer {
 		this.email = email;
 	}
 
-	public List<Camplaints> getCamplaints() {
-		return camplaints;
+	public List<Complaints> getComplaints() {
+		return complaints;
 	}
 
-	public void setCamplaints(List<Camplaints> camplaints) {
-		this.camplaints = camplaints;
+	public void setComplaints(List<Complaints> complaints) {
+		this.complaints = complaints;
 	}
 
 	public Customer(int id, String firstName, String lastName, String email, String username, String password) {
@@ -108,7 +108,7 @@ public class Customer {
 				", email='" + email + '\'' +
 				", username='" + username + '\'' +
 				", password='" + password + '\'' +
-				", camplaints=" + camplaints +
+				", complaints=" + complaints +
 				'}';
 	}
 

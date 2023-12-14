@@ -1,9 +1,9 @@
 package com.had.selfhelp.controller;
 
-import com.had.selfhelp.entity.Camplaints;
+import com.had.selfhelp.entity.Complaints;
 import com.had.selfhelp.entity.Customer;
 import com.had.selfhelp.entity.LoginRequest;
-import com.had.selfhelp.service.CamplaintServices;
+import com.had.selfhelp.service.ComplaintServices;
 import com.had.selfhelp.service.CustomerServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class CustomerController {
     CustomerServices customerServices;
 
      @Autowired
-    CamplaintServices camplaintServices;
+    ComplaintServices complaintServices;
 
     @PostMapping("/customer")
     public void save(@RequestBody Customer c ){
@@ -29,25 +29,25 @@ public class CustomerController {
     }
 
     @PostMapping("/customer/{cust_id}")
-    public List<Camplaints> save(@RequestBody Camplaints c , @PathVariable(name="cust_id")int cust_id)
+    public List<Complaints> save(@RequestBody Complaints c , @PathVariable(name="cust_id")int cust_id)
     {
          Customer cust = customerServices.findById(cust_id);
          c.setCustomer(cust);
          c.setStatus("Pending");
          c.setAknow("Pending");
-         camplaintServices.save(c);
+         complaintServices.save(c);
          log.info("Registering the complaints");
          return customerServices.costumerComplaint(cust);
     }
 
     @GetMapping("/complaints/{cust_id}")
-    public List<Camplaints>getcomplaints(@PathVariable(name="cust_id")int cust_id)
+    public List<Complaints>getcomplaints(@PathVariable(name="cust_id")int cust_id)
     {
         log.info("updating the complaints instance");
         Customer cust = customerServices.findById(cust_id);
         if(cust_id==1)
         {
-          return   camplaintServices.getAll();
+          return   complaintServices.getAll();
         }
         else
             return customerServices.costumerComplaint(cust);
@@ -62,9 +62,9 @@ public class CustomerController {
     public void status(@PathVariable(name="com_id")int com_id)
     {
         log.info("cheking complaints status");
-        Camplaints c =  camplaintServices.findById(com_id);
+        Complaints c =  complaintServices.findById(com_id);
         c.setStatus("Done");
-         camplaintServices.save(c);
+         complaintServices.save(c);
 
     }
 
@@ -72,9 +72,9 @@ public class CustomerController {
     public void status(@PathVariable(name="com_id")int com_id,@PathVariable(name="aknow")String aknow)
     {
         log.info("Aknowledge the complaints");
-        Camplaints c =  camplaintServices.findById(com_id);
+        Complaints c =  complaintServices.findById(com_id);
         c.setAknow(aknow);
-        camplaintServices.save(c);
+        complaintServices.save(c);
 
     }
 

@@ -103,7 +103,7 @@ class UserServiceTest {
         when(userRepository.save((User) any())).thenReturn(user);
 
         Customer customer = new Customer();
-        customer.setCamplaints(new ArrayList<>());
+        customer.setComplaints(new ArrayList<>());
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);
@@ -127,7 +127,7 @@ class UserServiceTest {
         when(userRepository.save((User) any())).thenThrow(new ExpressionException("An error occurred"));
 
         Customer customer = new Customer();
-        customer.setCamplaints(new ArrayList<>());
+        customer.setComplaints(new ArrayList<>());
         customer.setEmail("jane.doe@example.org");
         customer.setFirstName("Jane");
         customer.setId(1);

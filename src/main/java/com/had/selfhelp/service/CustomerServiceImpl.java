@@ -1,7 +1,7 @@
 package com.had.selfhelp.service;
 
 import com.had.selfhelp.dao.CustomerRepository;
-import com.had.selfhelp.entity.Camplaints;
+import com.had.selfhelp.entity.Complaints;
 import com.had.selfhelp.entity.Customer;
 import com.had.selfhelp.entity.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +35,9 @@ public class CustomerServiceImpl implements CustomerServices {
     }
 
     @Override
-    public List<Camplaints> costumerComplaint(Customer customer) {
+    public List<Complaints> costumerComplaint(Customer customer) {
         Customer c = customerRepository.getReferenceById(customer.getId());
-        return c.getCamplaints();
+        return c.getComplaints();
     }
 
     @Override
